@@ -145,17 +145,7 @@
   <footer><div class="container footer-grid"><div><a href="https://www.ysed.org.tw/yscampus/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><strong>財團法人育秀教育基金會</strong></a><br><a href="https://www.ysed.org.tw/yscampus/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">Y.S. Educational Foundation</a></div><div class="cohost"><span>協辦</span><img src="assets/mitac-synnex-logo.png" alt="聯華神通集團 MiTAC SYNNEX"></div><div>活動聯繫：黃小姐  <a href="mailto:hello@ysed.org.tw">hello@ysed.org.tw</a><br>電話：02-2651 6200 #1110</div></div></footer>
   <script>
     const attendanceForm = document.getElementById('attendanceForm');
-    const parkingOptions = attendanceForm.querySelectorAll('input[name="entry.722357315"]');
-    const licensePlate = document.getElementById('licensePlate');
     const formStatus = document.getElementById('formStatus');
-
-    function updateParkingField() {
-      const needsParking = attendanceForm.querySelector('input[name="entry.722357315"]:checked')?.value === '需要';
-      licensePlate.required = needsParking;
-      licensePlate.setAttribute('aria-required', String(needsParking));
-    }
-
-    parkingOptions.forEach(option => option.addEventListener('change', updateParkingField));
 
     const googleResponseFrame = document.getElementById('googleResponseFrame');
     const attendanceSuccess = document.getElementById('attendanceSuccess');
@@ -174,7 +164,6 @@
       if (!submissionPending) return;
       submissionPending = false;
       attendanceForm.reset();
-      updateParkingField();
       attendanceSuccess.showModal();
     });
 
@@ -183,7 +172,6 @@
       if (event.target === attendanceSuccess) attendanceSuccess.close();
     });
 
-    updateParkingField();
   </script>
 </body>
 </html>
