@@ -107,7 +107,7 @@
               <label class="radio"><input type="radio" name="entry.722357315" value="不需要" checked required>不需要</label>
               <div style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;vertical-align:middle;flex-wrap:wrap">
                 <label class="radio" style="margin:0">
-                  <input type="radio" name="entry.722357315" value="需要">需要（請備註車牌號碼）
+                  <input type="radio" name="entry.722357315" value="需要（請於下方備註車牌號碼）">需要（請備註車牌號碼）
                 </label>
                 <input id="licensePlate" name="entry.1476815798" type="text" maxlength="20" placeholder="例如：ABC-1234" aria-label="車牌號碼（例如：ABC-1234）" style="width:180px;margin:0">
               </div>
@@ -134,7 +134,7 @@
     <dialog id="attendanceSuccess" style="border:0;border-radius:12px;padding:0;max-width:520px;width:calc(100% - 40px);box-shadow:0 24px 80px rgba(11,31,58,.28)">
       <div style="padding:28px 30px;color:#0b1f3a;font-family:Inter,'Noto Sans TC','Microsoft JhengHei',sans-serif">
         <h3 style="margin:0 0 12px;color:#155eef;font-size:21px">報名成功</h3>
-        <p style="line-height:1.8;margin:0 0 24px">感謝您的回覆與報名，活動前一周我們將提寄送詳細活動資訊，期待於 MiTALK 見！</p>
+        <p style="line-height:1.8;margin:0 0 24px">感謝您的回覆與報名，活動前一周我們將提寄送詳細活動資訊，期待於MiTALK見！</p>
         <button id="closeAttendanceSuccess" type="button" class="button full">確定</button>
       </div>
     </dialog>
@@ -145,29 +145,58 @@
   <footer><div class="container footer-grid"><div><a href="https://www.ysed.org.tw/yscampus/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><strong>財團法人育秀教育基金會</strong></a><br><a href="https://www.ysed.org.tw/yscampus/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">Y.S. Educational Foundation</a></div><div class="cohost"><span>協辦</span><img src="assets/mitac-synnex-logo.png" alt="聯華神通集團 MiTAC SYNNEX"></div><div>活動聯繫：黃小姐  <a href="mailto:hello@ysed.org.tw">hello@ysed.org.tw</a><br>電話：02-2651 6200 #1110</div></div></footer>
   <script>
     const attendanceForm = document.getElementById('attendanceForm');
+    const parkingOptions = attendanceForm.querySelectorAll('input[name="entry.722357315"]');
+    const licensePlate = document.getElementById('licensePlate');
     const formStatus = document.getElementById('formStatus');
 
-    const googleResponseFrame = document.getElementById('googleResponseFrame');
+    function updateParkingField() {
+      const selectedParking = attendanceForm.querySelector('input[name="entry.722357315"]:checked')?.value;
+      licensePlate.disabled = selectedParking !== '需要（請於下方備註車牌號碼）';
+    }
+
+    parkingOptions.forEach(option => option.addEventListener('change', updateParkingField));
+
     const attendanceSuccess = document.getElementById('attendanceSuccess');
     const closeAttendanceSuccess = document.getElementById('closeAttendanceSuccess');
-    let submissionPending = false;
+    const encode = value => encodeURIComponent((value ?? '').trim());
 
-    attendanceForm.addEventListener('submit', event => {
+    attendanceForm.addEventListener('submit', async event => {
       event.preventDefault();
       if (!attendanceForm.reportValidity()) return;
 
-      submissionPending = true;
-      attendanceForm.submit();
-    });
+      const basePayload =
+        'entry.1392072307=' + encode(document.getElementById('chineseName').value) +
+        '&entry.953667232=' + encode(document.getElementById('englishName').value) +
+        '&entry.192898585=' + encode(document.getElementById('company').value) +
+        '&entry.1693461081=' + encode(document.getElementById('jobTitle').value) +
+        '&entry.1096803072=' + encode(document.getElementById('email').value) +
+        '&entry.1300517017=' + encode(document.getElementById('phone').value) +
+        '&entry.1468016906=' + encode(document.getElementById('aiDiscussion').value) +
+        '&entry.1255565283=' + encode(document.getElementById('instructorQuestions').value);
 
-    googleResponseFrame.addEventListener('load', () => {
-      if (!submissionPending) return;
-      submissionPending = false;
+      const needParking = attendanceForm.querySelector('input[name="entry.722357315"]:checked')?.value === '需要（請於下方備註車牌號碼）';
+      const finalBody = needParking
+        ? basePayload + '&entry.722357315=' + encode('需要（請於下方備註車牌號碼）') + '&entry.1476815798=' + encode(licensePlate.value)
+        : basePayload + '&entry.722357315=' + encode('不需要');
+
+      try {
+        await fetch(attendanceForm.action, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: finalBody
+        });
+      } catch (error) {
+        console.error('Google 表單送出失敗', error);
+      }
+
       attendanceForm.reset();
+      updateParkingField();
       attendanceSuccess.showModal();
     });
 
     closeAttendanceSuccess.addEventListener('click', () => attendanceSuccess.close());
+    updateParkingField();
     attendanceSuccess.addEventListener('click', event => {
       if (event.target === attendanceSuccess) attendanceSuccess.close();
     });
