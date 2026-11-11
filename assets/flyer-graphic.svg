@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <linearGradient id="tower" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#BCEBFF" stop-opacity=".55"/><stop offset="1" stop-color="#167CDE" stop-opacity=".14"/></linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5EDCFF" stop-opacity="0"/><stop offset=".55" stop-color="#81E6FF" stop-opacity=".92"/><stop offset="1" stop-color="#1F8CFF" stop-opacity=".15"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g opacity=".88">
+    <path d="M470 104h160v362H470z" fill="url(#tower)" stroke="#8DE7FF" stroke-opacity=".75" stroke-width="2"/>
+    <path d="M615 42h182v424H615z" fill="url(#tower)" stroke="#C0F1FF" stroke-opacity=".68" stroke-width="2"/>
+    <path d="M304 204h184v260H304z" fill="url(#tower)" stroke="#7CD6FF" stroke-opacity=".55" stroke-width="2"/>
+    <path d="M520 104v360M706 42v420M396 204v258" stroke="#D5F8FF" stroke-opacity=".24"/>
+  </g>
+  <g stroke="#C9F7FF" stroke-opacity=".6" stroke-width="3">
+    <path d="M420 470c16-100 166-100 182 0"/><path d="M526 470c17-146 238-146 255 0"/><path d="M317 470c11-63 108-63 122 0"/>
+  </g>
+  <g opacity=".55" stroke="#8DDEFF" stroke-width="1"><path d="M94 570C302 430 586 650 888 495"/><path d="M48 606C306 468 575 670 900 530"/><path d="M0 534C280 418 560 603 875 465"/></g>
+  <path d="M84 592C316 498 583 620 896 470" stroke="url(#wave)" stroke-width="7" filter="url(#glow)"/>
+  <path d="M123 610H900M190 570H900M256 530H900M322 490H900" stroke="#9BE8FF" stroke-opacity=".2"/>
+  <path d="M190 610V550M260 610V525M330 610V500M400 610V482M470 610V470M540 610V468M610 610V468M680 610V468M750 610V468M820 610V468" stroke="#9BE8FF" stroke-opacity=".2"/>
+  <g fill="#D7FAFF" filter="url(#glow)"><circle cx="530" cy="138" r="4"/><circle cx="698" cy="95" r="4"/><circle cx="772" cy="268" r="4"/><circle cx="487" cy="318" r="3"/><circle cx="829" cy="415" r="4"/></g>
+</svg>
