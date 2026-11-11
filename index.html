@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="MiTALK AI Forum｜企業導入 AI 的關鍵" />
+    <title>MiTALK AI Forum｜企業導入 AI 的關鍵</title>
+    <style>
+      :root {
+        --navy: #071b36;
+        --ink: #102845;
+        --blue: #1769e0;
+        --sky: #78c5ff;
+        --pale: #f3f7fc;
+        --line: #d8e2ee;
+        --muted: #526780;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 104px;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family:
+          "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+        line-height: 1.72;
+      }
+      .wrap {
+        width: min(1216px, calc(100% - 56px));
+        margin: auto;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #ffffffed;
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid #d8e2ee;
+        box-shadow: 0 6px 20px #061a3510;
+      }
+      .nav {
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 26px;
+      }
+      .brand {
+        width: 300px;
+        height: 83px;
+        overflow: hidden;
+        position: relative;
+        flex: 0 0 auto;
+      }
+      .brand img {
+        position: absolute;
+        width: 1640px;
+        max-width: none;
+        height: 120px;
+        left: -34px;
+        top: -13px;
+      }
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 33px;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .links > a:not(.cta):hover {
+        color: var(--blue);
+      }
+      .cta {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 13px 20px;
+        border-radius: 3px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        box-shadow: 0 8px 16px #1769e040;
+        transition: 0.2s;
+      }
+      .cta:hover {
+        background: #0756c6;
+        transform: translateY(-2px);
+      }
+      .hero {
+        min-height: 610px;
+        overflow: hidden;
+        position: relative;
+        color: #fff;
+        background: linear-gradient(
+          116deg,
+          #061a35 0%,
+          #082e5c 52%,
+          #1258a8 100%
+        );
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.8;
+        background:
+          linear-gradient(
+            90deg,
+            transparent 48%,
+            #a3deff20 48.1% 48.35%,
+            transparent 48.5%
+          ),
+          linear-gradient(
+            0deg,
+            transparent 34%,
+            #a3deff1c 34.1% 34.25%,
+            transparent 34.4%
+          ),
+          radial-gradient(circle at 72% 47%, #8ce3ff 0 2px, transparent 3px);
+        background-size:
+          100% 100%,
+          100% 100%,
+          130px 130px;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        width: 610px;
+        height: 610px;
+        right: -150px;
+        top: -115px;
+        border: 1px solid #91dcff70;
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 50px #91dcff0b,
+          0 0 0 110px #91dcff08,
+          0 0 100px #59c7ff70;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 83px 0 52px;
+      }
+      .eyebrow,
+      .label {
+        font-family: ui-monospace, monospace;
+        letter-spacing: 0.15em;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--blue);
+        margin: 0 0 14px;
+      }
+      .eyebrow {
+        font-size: 16px;
+        color: #a8d9ff;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(43px, 5.5vw, 76px);
+        line-height: 1.13;
+        letter-spacing: -0.055em;
+        margin: 0;
+        max-width: 800px;
+      }
+      .hero h1 span {
+        display: block;
+        color: #d9edff;
+        font-size: 0.49em;
+        line-height: 1.36;
+        letter-spacing: 0;
+        margin-top: 21px;
+        font-weight: 600;
+      }
+      .hero-bottom {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-top: 54px;
+      }
+      .meta {
+        display: flex;
+        gap: 26px;
+        flex-wrap: wrap;
+      }
+      .meta div {
+        padding-left: 15px;
+        border-left: 2px solid var(--sky);
+      }
+      .meta b {
+        display: block;
+        font:
+          800 13px ui-monospace,
+          monospace;
+        color: #9cd4ff;
+        letter-spacing: 0.1em;
+      }
+      .meta span {
+        font-size: 19px;
+        font-weight: 800;
+      }
+      .hero .cta {
+        padding: 17px 28px;
+        font-size: 19px;
+        background: #fff;
+        color: #0c4c9f;
+      }
+      .hero .cta:hover {
+        background: #dcefff;
+      }
+      .event {
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .event-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr 1.25fr auto;
+        align-items: stretch;
+      }
+      .event-item {
+        padding: 24px;
+        border-left: 1px solid var(--line);
+      }
+      .event-item:first-child {
+        border: 0;
+      }
+      .event-item b {
+        display: block;
+        color: var(--blue);
+        font:
+          800 13px ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+      }
+      .event-item span {
+        font-size: 19px;
+        line-height: 1.5;
+        font-weight: 800;
+      }
+      .event .cta {
+        margin: 18px 0 18px 25px;
+        align-self: center;
+        white-space: nowrap;
+      }
+      section {
+        padding: 105px 0;
+      }
+      .title {
+        font-size: clamp(34px, 4vw, 53px);
+        line-height: 1.25;
+        letter-spacing: -0.045em;
+        margin: 0;
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 90px;
+      }
+      .lead {
+        font-size: 21px;
+        line-height: 1.9;
+        color: #394f69;
+        margin: 0;
+      }
+      .quote {
+        margin: 30px 0 0;
+        padding-left: 24px;
+        border-left: 3px solid var(--blue);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.6;
+      }
+      .focus {
+        background: var(--pale);
+      }
+      .focus-top {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 42px;
+      }
+      .focus-top > p {
+        margin: 0;
+        max-width: 540px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .agenda {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .card {
+        min-height: 223px;
+        padding: 30px 29px;
+        background: #fff;
+        border-top: 3px solid transparent;
+        box-shadow: 0 5px 20px #1128450d;
+        transition: 0.2s;
+      }
+      .card:hover {
+        border-top-color: var(--blue);
+        transform: translateY(-5px);
+      }
+      .no {
+        font:
+          800 14px ui-monospace,
+          monospace;
+        color: var(--blue);
+      }
+      .card h3 {
+        font-size: 23px;
+        line-height: 1.35;
+        margin: 15px 0 11px;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+      .speaker {
+        display: grid;
+        grid-template-columns: 0.77fr 1.23fr;
+        gap: 86px;
+        align-items: center;
+      }
+      .speaker-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 374px;
+        padding: 46px 38px;
+        color: #fff;
+        background: linear-gradient(160deg, #0a2a50, #0c5bb1);
+      }
+      .speaker-card:after {
+        content: "AI";
+        position: absolute;
+        right: -16px;
+        bottom: -67px;
+        color: #b7e2ff28;
+        font-size: 210px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .speaker-card p {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #addbff;
+        font:
+          13px ui-monospace,
+          monospace;
+        letter-spacing: 0.14em;
+      }
+      .speaker-card h3 {
+        position: relative;
+        z-index: 1;
+        margin: 82px 0 0;
+        font-size: 42px;
+        line-height: 1.3;
+      }
+      .speaker-card small {
+        display: block;
+        margin-top: 8px;
+        color: #c9e7ff;
+        font-size: 20px;
+      }
+      .speaker-text > p {
+        margin: 18px 0;
+        color: #405773;
+        font-size: 19px;
+      }
+      .takeaways {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 30px;
+        border-top: 1px solid var(--line);
+      }
+      .takeaway {
+        display: flex;
+        gap: 13px;
+        padding: 18px 18px 18px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+        font-weight: 700;
+        color: #324a65;
+      }
+      .tick {
+        font-family: ui-monospace, monospace;
+        color: var(--blue);
+      }
+      .rsvp {
+        background: var(--navy);
+        color: #fff;
+      }
+      .rsvp .label {
+        color: #a5d8ff;
+      }
+      .rsvp-intro {
+        margin: 14px 0 36px;
+        color: #c0d2e5;
+        font-size: 18px;
+      }
+      .formbox {
+        padding: 43px;
+        background: #fff;
+        color: var(--ink);
+        box-shadow: 0 18px 50px #0004;
+      }
+      .form-note {
+        margin: 0 0 28px;
+        padding-left: 14px;
+        border-left: 3px solid var(--blue);
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 26px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field label {
+        font-size: 16px;
+        font-weight: 800;
+      }
+      .required {
+        color: var(--blue);
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #c8d5e5;
+        border-radius: 3px;
+        outline: 0;
+        color: var(--ink);
+        font: 17px inherit;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px #1769e020;
+      }
+      .full {
+        grid-column: 1/-1;
+      }
+      .choices {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        padding-top: 4px;
+      }
+      .choice {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+      .choice input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--blue);
+      }
+      .submit {
+        width: 100%;
+        margin-top: 30px;
+        padding: 17px 24px;
+        border: 0;
+        border-radius: 3px;
+        background: var(--blue);
+        color: #fff;
+        cursor: pointer;
+        font: 800 19px inherit;
+      }
+      .helper {
+        margin: 13px 0 0;
+        text-align: center;
+        color: #66758a;
+        font-size: 14px;
+      }
+      .forum {
+        background: #fff;
+      }
+      .forum-grid {
+        margin-top: 39px;
+        border-top: 1px solid var(--line);
+      }
+      .forum-row {
+        display: grid;
+        grid-template-columns: 210px 1fr auto;
+        align-items: center;
+        gap: 24px;
+        padding: 23px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .forum-date {
+        font:
+          800 15px ui-monospace,
+          monospace;
+        color: var(--blue);
+      }
+      .forum-name {
+        font-size: 22px;
+        font-weight: 800;
+      }
+      .status {
+        padding: 5px 10px;
+        border: 1px solid #aabed5;
+        color: #48627f;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .now {
+        border-color: #b7d7fb;
+        background: #eaf3ff;
+        color: #0756b8;
+      }
+      .footer {
+        padding: 30px 0;
+        background: #06172e;
+        color: #aebfd2;
+        font-size: 14px;
+      }
+      .footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .footer strong {
+        color: #fff;
+      }
+      @media (max-width: 850px) {
+        .wrap {
+          width: min(100% - 34px, 1216px);
+        }
+        .nav {
+          height: 78px;
+        }
+        .brand {
+          width: 235px;
+          height: 66px;
+        }
+        .brand img {
+          transform: scale(0.8);
+          transform-origin: left top;
+          left: -28px;
+          top: -10px;
+        }
+        .links {
+          gap: 16px;
+        }
+        .links > a:not(.cta) {
+          display: none;
+        }
+        .cta {
+          padding: 10px 13px;
+          font-size: 15px;
+        }
+        .hero {
+          min-height: auto;
+        }
+        .hero-content {
+          padding: 68px 0 42px;
+        }
+        .hero h1 {
+          font-size: clamp(39px, 11vw, 62px);
+        }
+        .hero-bottom {
+          align-items: start;
+          flex-direction: column;
+          margin-top: 40px;
+        }
+        .meta {
+          gap: 16px;
+        }
+        .meta span {
+          font-size: 17px;
+        }
+        .event-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .event-item:nth-child(3) {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+        .event .cta {
+          grid-column: 1/-1;
+          margin: 18px;
+        }
+        .intro,
+        .speaker {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .focus-top {
+          display: block;
+        }
+        .focus-top > p {
+          margin-top: 20px;
+        }
+        .agenda,
+        .takeaways,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .speaker-card {
+          min-height: 250px;
+        }
+        .speaker-card h3 {
+          margin-top: 42px;
+        }
+        .full {
+          grid-column: auto;
+        }
+        .formbox {
+          padding: 27px 20px;
+        }
+        .forum-row {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+        .status {
+          justify-self: start;
+        }
+        section {
+          padding: 70px 0;
+        }
+      }
+    </style>
+    <style>
+      .event-grid {
+        grid-template-columns: 1fr 1.1fr 1.25fr 1.15fr;
+      }
+      .parking-inline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .parking-inline input[type="text"] {
+        width: 170px;
+        padding: 8px 10px;
+        font-size: 16px;
+      }
+      .speaker-card {
+        padding: 0;
+        background: #0b2a50;
+      }
+      .speaker-card:after {
+        display: none;
+      }
+      .speaker-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .speaker-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 36px 34px;
+        background: linear-gradient(180deg, #071b3600 26%, #071b36d9 100%);
+      }
+      .speaker-card h3 {
+        margin: 8px 0 0;
+        text-shadow: 0 2px 10px #0008;
+      }
+      .speaker-card h3 span {
+        font-size: 0.54em;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+      }
+      .speaker-card small {
+        font-size: 18px;
+      }
+      .hero-flyer-art {
+        position: absolute;
+        z-index: 0;
+        right: -7%;
+        bottom: -14%;
+        width: 72%;
+        height: 84%;
+        object-fit: cover;
+        object-position: right bottom;
+        opacity: 0.28;
+        filter: brightness(0.62) saturate(1.55) contrast(1.28);
+        mix-blend-mode: screen;
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
+      }
+      .hero-organizers {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+        color: #d7ebff;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .hero-organizers strong {
+        color: #8fcaff;
+        font:
+          800 12px ui-monospace,
+          monospace;
+        letter-spacing: 0.08em;
+      }
+      .focus-top {
+        display: block;
+        align-items: initial;
+      }
+      .focus-top > p {
+        margin: 18px 0 0;
+        max-width: 720px;
+      }
+      .submit {
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+      .organizers {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .organizers,
+      .organizers a,
+      .organizers strong,
+      .organizers span {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        color: #d4e7fa;
+      }
+      .organizers a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .organizers a:hover {
+        text-decoration: underline;
+      }
+      .footer-contact {
+        color: #aebfd2;
+      }
+      .footer-contact a {
+        color: #d4e7fa;
+        text-decoration: underline;
+      }
+      @media (max-width: 850px) {
+        .speaker-overlay {
+          padding: 26px;
+        }
+        .speaker-card h3 {
+          font-size: 33px;
+        }
+        .hero-flyer-art {
+          right: -38%;
+          bottom: -2%;
+          width: 118%;
+          height: 62%;
+          opacity: 0.21;
+        }
+        .hero-organizers {
+          margin-top: 18px;
+          gap: 8px 14px;
+        }
+        .organizers {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      .hero-flyer-art {
+        display: none;
+      }
+      .parking-inline input[type="text"] {
+        width: 320px;
+        max-width: 100%;
+        padding: 11px 14px;
+      }
+      .deadline {
+        display: inline-block;
+        padding: 1px 8px;
+        border: 1px solid #9ed3ff;
+        border-radius: 3px;
+        background: #fff;
+        color: #0756c6;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+      .meta {
+        gap: 20px;
+      }
+    </style>
+    <header class="top">
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="MiTALK 焦點論壇首頁"
+          ><img
+            src="assets/mitalk-header-identity.png"
+            alt="財團法人育秀教育基金會 MiTALK 焦點論壇"
+        /></a>
+        <nav class="links">
+          <a href="#focus">分享重點</a><a href="#speaker">講師介紹</a
+          ><a class="cta" href="#rsvp">回覆出席　→</a>
+        </nav>
+      </div>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <img
+          class="hero-flyer-art"
+          src="assets/flyer-graphic.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="wrap hero-content">
+          <p class="eyebrow">MiTALK AI FORUM · 2026.12.08</p>
+          <h1>
+            企業導入 AI 的關鍵<span>從軟體架構、算力策略到成功落地實踐</span>
+          </h1>
+          <div class="hero-bottom">
+            <div>
+              <div class="meta">
+                <div><b>DATE</b><span>2026 年 12 月 08 日（二）</span></div>
+                <div><b>TIME</b><span>14:00–16:10</span></div>
+                <div><b>CHECK-IN</b><span>13:30–14:00</span></div>
+              </div>
+              <div class="hero-organizers">
+                <span><strong>主辦｜</strong> 財團法人育秀教育基金會</span
+                ><span><strong>協辦｜</strong> 聯華神通集團 MiTAC-SYNNEX</span>
+              </div>
+            </div>
+            <a class="cta" href="#rsvp">回覆出席意願　→</a>
+          </div>
+        </div>
+      </section>
+      <div class="event">
+        <div class="wrap event-grid">
+          <div class="event-item">
+            <b>FOR</b><span>聯華神通集團高階主管<br />與技術單位主管</span>
+          </div>
+          <div class="event-item">
+            <b>VENUE</b><span>育秀教育基金會<br />（聯強國際大樓 15 樓）</span>
+          </div>
+          <div class="event-item">
+            <b>FORMAT</b><span>實務分享・深度對談・跨界交流</span>
+          </div>
+          <div class="event-item">
+            <b>ACTIVITY CONTACT</b
+            ><span>hello@ysed.org.tw<br />02-2651-6200 #1110</span>
+          </div>
+        </div>
+      </div>
+      <section class="wrap intro">
+        <div>
+          <p class="label">ABOUT THE FORUM</p>
+          <h2 class="title">讓 AI 從概念，走向真正可運作的服務</h2>
+        </div>
+        <div>
+          <p class="lead">
+            生成式 AI 與 AI Agent
+            快速發展，企業導入的挑戰早已不只是選擇模型，而是如何整合資料、模型、應用服務與算力資源，建立能持續營運、擴充並創造價值的
+            AI 架構。
+          </p>
+          <p class="quote">
+            透過實戰經驗與案例，理解企業落地 AI
+            時的架構設計、資源配置、跨域協作與營運取捨。
+          </p>
+        </div>
+      </section>
+      <section class="focus" id="focus">
+        <div class="wrap">
+          <div class="focus-top">
+            <div>
+              <p class="label">KEY FOCUS</p>
+              <h2 class="title">分享重點</h2>
+            </div>
+            <p>
+              從 AI RAP 的推進經驗，帶回一套可思考、可部署、可持續優化的企業 AI
+              落地視角。
+            </p>
+          </div>
+          <div class="agenda">
+            <article class="card">
+              <span class="no">01</span>
+              <h3>從 AI 熱潮到企業落地</h3>
+              <p>
+                從單點工具導入、PoC 驗證到企業級服務，盤點技術、組織與營運門檻。
+              </p>
+            </article>
+            <article class="card">
+              <span class="no">02</span>
+              <h3>建構可持續運作的 AI 架構</h3>
+              <p>
+                解析資料、模型、應用服務、平臺、算力與治理，如何形成長期發展的基礎。
+              </p>
+            </article>
+            <article class="card">
+              <span class="no">03</span>
+              <h3>AI RAP 的實踐經驗</h3>
+              <p>以國網中心實務為例，分享由平臺能力到生態系合作的推進思維。</p>
+            </article>
+            <article class="card">
+              <span class="no">04</span>
+              <h3>算力策略與部署實務</h3>
+              <p>
+                比較雲端、地端、邊緣與混合部署，理解不同情境下的設計與取捨。
+              </p>
+            </article>
+            <article class="card">
+              <span class="no">05</span>
+              <h3>從案例看 AI 創造價值</h3>
+              <p>
+                從正式部署的經驗，探討效能、安全、成本、治理與維運的關鍵課題。
+              </p>
+            </article>
+            <article class="card">
+              <span class="no">06</span>
+              <h3>從 PoC 邁向規模化</h3>
+              <p>掌握將 AI 擴大為可部署、可維運、可持續優化服務的實踐路徑。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="wrap speaker" id="speaker">
+        <aside class="speaker-card">
+          <img
+            class="speaker-image"
+            src="assets/forum-simulated-pic.png"
+            alt="講師授課並與學員互動的情境"
+          />
+          <div class="speaker-overlay">
+            <p>FEATURED SPEAKER</p>
+            <h3>林昀德 <span>Kevin Lin</span><small>技術總監</small></h3>
+          </div>
+        </aside>
+        <div class="speaker-text">
+          <p class="label">SPEAKER & TAKEAWAYS</p>
+          <h2 class="title">以國網中心的推動經驗，分享 AI 實踐的方法。</h2>
+          <p>
+            林昀德技術總監將以國網中心推動 AI RAP（Resilient and
+            High-Performance AI Platform）的實務歷程，分享從內部驗證、AI
+            聚落合作到算力與模型聯盟的發展，以及在雲端、地端、邊緣與雲地混合環境下的部署經驗。
+          </p>
+          <p>
+            本場不是只談技術趨勢，而是以真實推動過程與案例，提供企業主管與技術團隊可參考的
+            AI 落地路徑。
+          </p>
+          <div class="takeaways">
+            <div class="takeaway">
+              <span class="tick">01</span
+              ><span>看懂 AI 導入需要的完整架構與營運策略。</span>
+            </div>
+            <div class="takeaway">
+              <span class="tick">02</span
+              ><span>判斷適合自身業務與資料條件的算力配置。</span>
+            </div>
+            <div class="takeaway">
+              <span class="tick">03</span
+              ><span>掌握 AI 平臺、模型服務與生態系合作的推進方式。</span>
+            </div>
+            <div class="takeaway">
+              <span class="tick">04</span
+              ><span>理解從 PoC 到正式上線的效能、資安與成本挑戰。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="rsvp" id="rsvp">
+        <div class="wrap">
+          <p class="label">ACTIVITY RSVP</p>
+          <h2 class="title">活動出席回覆</h2>
+          <p class="rsvp-intro">
+            因席次有限，敬請於 <mark class="deadline">11/24</mark>
+            前回覆，以便協助安排貴賓座位與停車事宜。標示
+            <strong>*</strong> 的欄位為必填。
+          </p>
+          <form class="formbox" id="rsvpForm">
+            <div class="grid">
+              <div class="field">
+                <label for="name"
+                  >中文全名 <span class="required">*</span></label
+                ><input id="name" required />
+              </div>
+              <div class="field">
+                <label for="enname"
+                  >English Name <span class="required">*</span></label
+                ><input id="enname" required />
+              </div>
+              <div class="field">
+                <label for="company"
+                  >公司名稱（中英文皆可）<span class="required">*</span></label
+                ><input id="company" required />
+              </div>
+              <div class="field">
+                <label for="title">職稱 <span class="required">*</span></label
+                ><input id="title" required />
+              </div>
+              <div class="field">
+                <label for="email"
+                  >電子郵件 Email <span class="required">*</span></label
+                ><input id="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="phone">連絡電話</label
+                ><input id="phone" type="tel" />
+              </div>
+              <div class="field full">
+                <label>是否需要安排車位？</label>
+                <div class="choices">
+                  <label class="choice"
+                    ><input
+                      type="radio"
+                      name="parking"
+                      value="不需要"
+                      checked
+                    />
+                    不需要</label
+                  ><label class="choice parking-inline"
+                    ><input type="radio" name="parking" value="需要" /> 需要
+                    <input
+                      id="plate"
+                      type="text"
+                      placeholder="車牌號碼，例：ABC-1234"
+                      aria-label="車牌號碼"
+                  /></label>
+                </div>
+              </div>
+              <div class="field full">
+                <label for="topic"
+                  >目前在 AI 導入或應用上，最希望與講師討論的議題是什麼？
+                  <small>（選填）</small></label
+                ><textarea
+                  id="topic"
+                  placeholder="歡迎寫下您團隊目前面臨的痛點、實務案例或想深入了解的技術情境"
+                ></textarea>
+              </div>
+              <div class="field full">
+                <label for="other"
+                  >其他想詢問講師的話或建議 <small>（選填）</small></label
+                ><textarea
+                  id="other"
+                  placeholder="企業資料如何導入 LLM、AI Agent、私有化部署、資料治理或算力規劃"
+                ></textarea>
+              </div>
+            </div>
+            <button class="submit" type="submit">SUBMIT 送出回覆</button>
+            <p class="helper">您所提供的資料僅供本次活動聯繫與出席管理使用。</p>
+          </form>
+        </div>
+      </section>
+      <section class="forum">
+        <div class="wrap">
+          <p class="label">BIMONTHLY FORUM</p>
+          <h2 class="title">MiTALK AI Forum 雙月論壇</h2>
+          <div class="forum-grid">
+            <div class="forum-row">
+              <div class="forum-date">2026 / 12 / 8（二）</div>
+              <div class="forum-name">AI 軟體架構與算力落地</div>
+              <span class="status now">本次論壇</span>
+            </div>
+            <div class="forum-row">
+              <div class="forum-date">2027 / 3 / 9（二）</div>
+              <div class="forum-name">AI 應用落地與營運轉型</div>
+              <span class="status">籌備中</span>
+            </div>
+            <div class="forum-row">
+              <div class="forum-date">2027 / 5 月中旬</div>
+              <div class="forum-name">解密真實場景下的 AI 落地方程式</div>
+              <span class="status">籌備中</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <span class="organizers"
+          ><strong>主辦｜</strong
+          ><a
+            href="https://www.ysed.org.tw/yscampus/"
+            target="_blank"
+            rel="noopener"
+            >財團法人育秀教育基金會</a
+          ><strong>協辦｜</strong><span>聯華神通集團 MiTAC-SYNNEX</span></span
+        ><span class="footer-contact"
+          >活動聯繫：黃小姐　｜　<a href="mailto:hello@ysed.org.tw"
+            >hello@ysed.org.tw</a
+          >　｜　02-2651-6200 #1110</span
+        ><span>MiTALK AI Forum · 2026</span>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("rsvpForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!this.reportValidity()) return;
+          const v = (id) => document.getElementById(id).value.trim(),
+            q = (n) =>
+              document.querySelector('input[name="' + n + '"]:checked')
+                ?.value || "",
+            b = [
+              "MiTALK AI Forum｜2026/12/8 活動出席回覆",
+              "",
+              "中文全名：" + v("name"),
+              "English Name：" + v("enname"),
+              "公司名稱：" + v("company"),
+              "職稱：" + v("title"),
+              "Email：" + v("email"),
+              "連絡電話：" + v("phone"),
+              "停車需求：" + q("parking"),
+              "車牌號碼：" + v("plate"),
+              "",
+              "希望討論的 AI 議題：",
+              v("topic"),
+              "",
+              "其他詢問或建議：",
+              v("other"),
+            ].join("\n");
+          location.href =
+            "mailto:hello@ysed.org.tw?subject=" +
+            encodeURIComponent("MiTALK焦點論壇回覆｜" + v("name")) +
+            "&body=" +
+            encodeURIComponent(b);
+        });
+    </script>
+  </body>
+</html>
