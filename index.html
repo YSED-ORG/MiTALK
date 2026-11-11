@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="MiTALK AI Forum｜企業導入 AI 的關鍵" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <title>MiTALK AI Forum｜企業導入 AI 的關鍵</title>
     <style>
       :root {
@@ -55,19 +54,45 @@
         gap: 26px;
       }
       .brand {
-        width: 300px;
-        height: 83px;
-        overflow: hidden;
+        width: 240px;
+        height: 54px;
         position: relative;
         flex: 0 0 auto;
+        color: #102845;
       }
-      .brand img {
+      .brand-foundation {
         position: absolute;
-        width: 1640px;
-        max-width: none;
-        height: 120px;
-        left: -34px;
-        top: -13px;
+        top: 0;
+        left: 0;
+        color: #57718f;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      .brand-title {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        align-items: baseline;
+        white-space: nowrap;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: -0.045em;
+        line-height: 1;
+      }
+      .brand-i {
+        color: #1769e0;
+      }
+      .brand-forum {
+        margin-left: 16px;
+        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        font-size: 25px;
+        font-style: normal;
+        letter-spacing: 0.12em;
       }
       .links {
         display: flex;
@@ -499,6 +524,68 @@
         color: #66758a;
         font-size: 14px;
       }
+      .success-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: #061a35b8;
+      }
+      .success-modal[hidden] {
+        display: none;
+      }
+      .success-dialog {
+        position: relative;
+        width: min(560px, 100%);
+        padding: 42px;
+        border-top: 4px solid var(--blue);
+        background: #fff;
+        color: var(--ink);
+        box-shadow: 0 18px 50px #0004;
+      }
+      .success-dialog .label {
+        margin: 0 0 12px;
+        color: var(--blue);
+      }
+      .success-dialog h2 {
+        margin: 0 0 16px;
+        font-size: 26px;
+      }
+      .success-dialog p {
+        line-height: 1.8;
+      }
+      .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        padding: 4px 10px;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 28px;
+        line-height: 1;
+      }
+      .modal-confirm {
+        margin-top: 12px;
+        padding: 12px 24px;
+        border: 0;
+        border-radius: 3px;
+        background: var(--blue);
+        color: #fff;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .submit:disabled,
+      .modal-confirm:disabled {
+        cursor: wait;
+        opacity: 0.7;
+      }
       .forum {
         background: #fff;
       }
@@ -559,14 +646,20 @@
           height: 78px;
         }
         .brand {
-          width: 235px;
-          height: 66px;
+          width: 190px;
+          height: 44px;
         }
-        .brand img {
-          transform: scale(0.8);
-          transform-origin: left top;
-          left: -28px;
-          top: -10px;
+        .brand-foundation {
+          top: 0;
+          left: 0;
+          font-size: 10px;
+        }
+        .brand-title {
+          font-size: 26px;
+        }
+        .brand-forum {
+          margin-left: 12px;
+          font-size: 20px;
         }
         .links {
           gap: 16px;
@@ -826,10 +919,12 @@
     <header class="top">
       <div class="wrap nav">
         <a class="brand" href="#top" aria-label="MiTALK 焦點論壇首頁"
-          ><img
-            src="assets/mitalk-header-identity.png"
-            alt="財團法人育秀教育基金會 MiTALK 焦點論壇"
-        /></a>
+          ><span class="brand-foundation">財團法人育秀教育基金會</span
+          ><span class="brand-title"
+            ><span>M</span><span class="brand-i">i</span><span>TALK</span
+            ><em class="brand-forum">焦點論壇</em></span
+          ></a
+        >
         <nav class="links">
           <a href="#focus">分享重點</a><a href="#speaker">講師介紹</a
           ><a class="cta" href="#rsvp">回覆出席　→</a>
@@ -967,7 +1062,7 @@
         </aside>
         <div class="speaker-text">
           <p class="label">SPEAKER & TAKEAWAYS</p>
-          <h2 class="title">以國網中心的推動經驗，分享 AI 實踐的方法。</h2>
+          <h2 class="title">以國網中心的推動經驗，分享 AI 實踐的方法</h2>
           <p>
             林昀德技術總監將以國網中心推動 AI RAP（Resilient and
             High-Performance AI Platform）的實務歷程，分享從內部驗證、AI
@@ -1029,7 +1124,7 @@
               </div>
               <div class="field">
                 <label for="email"
-                  >電子郵件 Email <span class="required">*</span></label
+                  >電子郵件 <span class="required">*</span></label
                 ><input id="email" type="email" required />
               </div>
               <div class="field">
@@ -1121,40 +1216,121 @@
         ><span>MiTALK AI Forum · 2026</span>
       </div>
     </footer>
+    <div class="success-modal" id="successModal" hidden>
+      <div
+        class="success-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="successTitle"
+        aria-describedby="successMessage"
+      >
+        <button class="modal-close" type="button" aria-label="關閉提示">
+          &times;
+        </button>
+        <p class="label">ACTIVITY RSVP</p>
+        <h2 id="successTitle">送出成功</h2>
+        <p id="successMessage">
+          感謝您的回覆與報名，將於活動前一週寄送活動資訊給您，期待與您 12/8 在 MiTALK 相見！
+        </p>
+        <button class="modal-confirm" type="button">我知道了</button>
+      </div>
+    </div>
     <script>
-      document
-        .getElementById("rsvpForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (!this.reportValidity()) return;
-          const v = (id) => document.getElementById(id).value.trim(),
-            q = (n) =>
-              document.querySelector('input[name="' + n + '"]:checked')
-                ?.value || "",
-            b = [
-              "MiTALK AI Forum｜2026/12/8 活動出席回覆",
-              "",
-              "中文全名：" + v("name"),
-              "English Name：" + v("enname"),
-              "公司名稱：" + v("company"),
-              "職稱：" + v("title"),
-              "Email：" + v("email"),
-              "連絡電話：" + v("phone"),
-              "停車需求：" + q("parking"),
-              "車牌號碼：" + v("plate"),
-              "",
-              "希望討論的 AI 議題：",
-              v("topic"),
-              "",
-              "其他詢問或建議：",
-              v("other"),
-            ].join("\n");
-          location.href =
-            "mailto:hello@ysed.org.tw?subject=" +
-            encodeURIComponent("MiTALK焦點論壇回覆｜" + v("name")) +
-            "&body=" +
-            encodeURIComponent(b);
+      const rsvpForm = document.getElementById("rsvpForm"),
+        submitButton = rsvpForm.querySelector(".submit"),
+        successModal = document.getElementById("successModal"),
+        modalCloseButtons = successModal.querySelectorAll(
+          ".modal-close, .modal-confirm",
+        );
+      let submissionPending = false;
+
+      function closeSuccessModal() {
+        successModal.hidden = true;
+        submitButton.focus();
+      }
+
+      modalCloseButtons.forEach((button) =>
+        button.addEventListener("click", closeSuccessModal),
+      );
+      successModal.addEventListener("click", (event) => {
+        if (event.target === successModal) closeSuccessModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !successModal.hidden) {
+          closeSuccessModal();
+        }
+      });
+
+      rsvpForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (submissionPending || !this.reportValidity()) return;
+
+        const value = (id) =>
+            document.getElementById(id).value.trim(),
+          selected = (name) =>
+            document.querySelector('input[name="' + name + '"]:checked')
+              ?.value || "",
+          values = {
+            "entry.1392072307": value("name"),
+            "entry.953667232": value("enname"),
+            "entry.192898585": value("company"),
+            "entry.1693461081": value("title"),
+            "entry.1096803072": value("email"),
+            "entry.1300517017": value("phone"),
+            "entry.722357315": selected("parking"),
+            "entry.1476815798": value("plate"),
+            "entry.1468016906": value("topic"),
+            "entry.1255565283": value("other"),
+            fvv: "1",
+            pageHistory: "0",
+            fbzx: "8580485296386215046",
+          },
+          postForm = document.createElement("form"),
+          frame = document.createElement("iframe");
+
+        postForm.method = "post";
+        postForm.action =
+          "https://docs.google.com/forms/d/e/1FAIpQLSdVg5Psu8YSqXrb2darOfJkdXDuL2L2rNWEKp0N9kSgaowLvQ/formResponse";
+        postForm.target = "rsvpSubmissionFrame";
+        postForm.hidden = true;
+
+        Object.entries(values).forEach(([name, value]) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          input.value = value;
+          postForm.appendChild(input);
         });
+
+        frame.name = "rsvpSubmissionFrame";
+        frame.title = "背景表單送出";
+        frame.tabIndex = -1;
+        frame.style.display = "none";
+        frame.src =
+          "https://docs.google.com/forms/d/e/1FAIpQLSdVg5Psu8YSqXrb2darOfJkdXDuL2L2rNWEKp0N9kSgaowLvQ/viewform?hl=zh-TW";
+
+        let waitingForInitialLoad = true;
+        frame.addEventListener("load", () => {
+          if (waitingForInitialLoad) {
+            waitingForInitialLoad = false;
+            postForm.submit();
+            return;
+          }
+
+          submissionPending = false;
+          submitButton.disabled = false;
+          submitButton.textContent = "SUBMIT 送出回覆";
+          postForm.remove();
+          frame.remove();
+          successModal.hidden = false;
+          successModal.querySelector(".modal-close").focus();
+        });
+
+        submissionPending = true;
+        submitButton.disabled = true;
+        submitButton.textContent = "送出中…";
+        document.body.append(postForm, frame);
+      });
     </script>
   </body>
 </html>
