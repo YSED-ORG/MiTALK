@@ -274,10 +274,17 @@
         line-height: 1.5;
         font-weight: 800;
       }
+      .event-item .event-item-secondary {
+        font-weight: 400;
+      }
+      .event-item .event-contact-details {
+        font-size: 16px;
+      }
       .event-item .contact-email {
         color: inherit;
         text-decoration: none;
         transition: color 0.2s;
+        overflow-wrap: anywhere;
       }
       .event-item .contact-email:hover,
       .event-item .contact-email:focus-visible {
@@ -756,6 +763,24 @@
       .event-grid {
         grid-template-columns: 1fr 1.1fr 1.25fr 1.15fr;
       }
+      @media (max-width: 850px) {
+        .event-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .event-item:nth-child(3) {
+          border-top: 0;
+          border-left: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 560px) {
+        .event-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .event-item:not(:first-child) {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+      }
       .parking-inline {
         display: flex;
         align-items: center;
@@ -979,14 +1004,19 @@
             <b>FOR</b><span>聯華神通集團高階主管<br />與技術單位主管</span>
           </div>
           <div class="event-item">
-            <b>VENUE</b><span>育秀教育基金會<br />（聯強國際大樓 15 樓）</span>
+            <b>VENUE</b><span
+              >育秀教育基金會<br /><span class="event-item-secondary"
+                >聯強國際大樓 15 樓</span
+              ></span
+            >
           </div>
           <div class="event-item">
-            <b>FORMAT</b><span>實務分享・深度對談・跨界交流</span>
+            <b>FORMAT</b><span>實務分享・深度對談・<br />跨界交流</span>
           </div>
           <div class="event-item">
             <b>ACTIVITY CONTACT</b
-            ><span><a class="contact-email" href="mailto:hello@ysed.org.tw"
+            ><span class="event-contact-details"
+              ><a class="contact-email" href="mailto:hello@ysed.org.tw"
                 >hello@ysed.org.tw</a
               ><br />02-2651-6200 #1110</span>
           </div>
