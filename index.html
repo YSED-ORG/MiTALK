@@ -455,6 +455,20 @@
         color: #c0d2e5;
         font-size: 18px;
       }
+      .rsvp-note {
+        margin: 36px 0 0;
+        padding: 28px 32px;
+        border: 1px solid #42627f;
+        border-radius: 6px;
+        background: #112d49;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.8;
+      }
+      .rsvp-note a {
+        color: #a5d8ff;
+        text-underline-offset: 3px;
+      }
       .formbox {
         padding: 43px;
         background: #fff;
@@ -965,7 +979,7 @@
         >
         <nav class="links">
           <a href="#focus">分享重點</a><a href="#speaker">講師介紹</a
-          ><a class="cta" href="#rsvp">回覆出席　→</a>
+          ><a class="cta" href="#rsvp">報名截止　→</a>
         </nav>
       </div>
     </header>
@@ -994,7 +1008,7 @@
                 ><span><strong>協辦｜</strong> 聯華神通集團 MiTAC-SYNNEX</span>
               </div>
             </div>
-            <a class="cta" href="#rsvp">回覆出席意願　→</a>
+            <a class="cta" href="#rsvp">報名截止　→</a>
           </div>
         </div>
       </section>
@@ -1146,7 +1160,13 @@
             前回覆，以便協助安排貴賓座位與停車事宜。標示
             <strong>*</strong> 的欄位為必填。
           </p>
-          <form class="formbox" id="rsvpForm">
+          <p class="rsvp-note">
+            <strong>MiTALK 席次已滿，謝謝各位主管的熱烈回應！</strong><br /><br />
+            還想一起來聊 AI？歡迎聯繫活動小組，我們幫您留意空位。<br /><br />
+            <a href="mailto:hello@ysed.org.tw">hello@ysed.org.tw</a> ｜
+            <a href="tel:+886226516200">02-2651-6200 #1110</a>
+          </p>
+          <form class="formbox" id="rsvpForm" hidden>
             <div class="grid">
               <div class="field">
                 <label for="name"
@@ -1273,9 +1293,12 @@
           &times;
         </button>
         <p class="label">ACTIVITY RSVP</p>
-        <h2 id="successTitle">送出成功</h2>
+        <h2 id="successTitle">額滿！</h2>
         <p id="successMessage">
-          感謝您的參與！系統已確認您的報名資料。活動詳細資訊將於活動前一週寄到您的信箱，期待 12/8 與您相聚 MiTALK！
+          MiTALK 席次已滿，謝謝各位主管的熱烈回應！<br /><br />
+          還想一起來聊 AI？歡迎聯繫活動小組，我們幫您留意空位。<br /><br />
+          <a href="mailto:hello@ysed.org.tw">hello@ysed.org.tw</a> ｜
+          <a href="tel:+886226516200">02-2651-6200 #1110</a>
         </p>
         <button class="modal-confirm" type="button">我知道了</button>
       </div>
